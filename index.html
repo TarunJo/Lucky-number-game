@@ -69,6 +69,7 @@
         document.getElementById("reset").addEventListener("click",function(){
             document.getElementById("try").innerHTML = "Chances left :- " + 10;
             document.getElementById("message").innerHTML = "";
+            document.getElementById("number_guess").value ="";
             cnt=0;
         });
 
@@ -90,6 +91,7 @@
                 alert("You Lost! The number was "+correct);
                 document.getElementById("try").innerHTML = "Chances left :- "+10;
                 document.getElementById("message").innerHTML = "";
+                document.getElementById("number_guess").value = "";
                 cnt=0;
             }
             else{
@@ -98,6 +100,7 @@
                     document.getElementById("message").innerHTML = "";
 
                     alert("You won!");
+                    document.getElementById("number_guess").value ="";
                     document.getElementById("try").innerHTML = "Chances left :- " + 10;
                     cnt=0;
                 }
