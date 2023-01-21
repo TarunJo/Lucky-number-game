@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>The Lucky Number Game</h1>
+    <p>Enter any number between (1 to 100):- </p>
+    <input type="number" id="number_guess">
+    <button id="myBtn">Guess</button>
+    <p>Try Left:- </p>
+    <p id="try"></p>
+    <h2>History</h2>
+    <p id="message"></p>
+
+    <script>
+        var cnt = 0;
+        var correct;
+        document.getElementById("try").innerHTML = 10;
+        document.getElementById("myBtn").addEventListener("click", function () {
+            var guess = document.getElementById("number_guess").value;
+            document.getElementById("try").innerHTML = 10-cnt-1;
+            if(cnt==0)
+                correct=Math.floor(Math.random()*100);
+            cnt+=1;
+            console.log(correct);
+            if(cnt==10)
+            {
+                alert("You Lost!");
+                document.getElementById("try").innerHTML = 10;
+                document.getElementById("message").innerHTML = "";
+                cnt=0;
+            }
+            else{
+                if(guess==correct)
+                {
+                    document.getElementById("message").innerHTML = "";
+
+                    alert("You won!");
+                    document.getElementById("try").innerHTML = 10;
+                    cnt=0;
+                }
+                else
+                {
+                    if(guess>correct)
+                    {
+                        document.getElementById("message").innerHTML = "You gussed too high!";
+                    }
+                    else
+                    {
+                        document.getElementById("message").innerHTML = "You gussed too low!";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
